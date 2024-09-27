@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>service website</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="bg-white">
+    <header class="top-0 left-0 inset-0 sticky px-6 py-4 z-30 bg-white flex justify-between items-center border-b-2 border-black">
+        <!-- NAVBAR-start -->
+            <div class="flex items-center space-x-6 lg:ml-8">
+                <h1 class="text-3xl md:text-4xl capitalize font-bold text-black">logo</h1>
+                <nav class="hidden lg:flex items-center space-x-6 ml-12">
+
+                    <a href="index.html" class="capitalize font-semibold text-xl text-black hover:text-pink hover:scale-95 duration-200 ease-in">our services</a>
+
+                    <a href="" class="capitalize font-semibold text-xl text-black hover:text-pink hover:scale-95 duration-200 ease-in">login</a>
+                </nav>
+            </div>
+
+            <div class="flex items-center space-x-6 lg:mr-8">              
+
+                <button class="lg:hidden border-2 border-black p-2 text-lg rounded-full hover:bg-black hover:text-pink hover:scale-105 ease-in-out duration-200"  onclick="toggleNav()"><i class="fa-solid fa-bars"></i></button>
+
+                <button class="relative p-2 text-lg rounded-full hover:text-pink hover:scale-105 ease-in-out duration-200" onclick="ToggleCart()"><i class="fa-solid fa-cart-shopping text-2xl"></i>
+                    
+                    <span id="cart-count" class="absolute top-0 bg-black right-0 bg-red-500 text-pink rounded-full w-4 h-4 text-xs items-center justify-center hidden">0</span>
+
+                </button>
+            </div>
+
+            <!-- MOBILE-SCREEN-START -->
+            <div class="fixed inset-0 z-50 items-center justify-center bg-pink bg-opacity-40 hidden" id="mobile-menu">
+                <div class="bg-white w-1/2 lg:w-1/4 h-full shadow-lg p-4">
+
+                    <button class="text-right w-full text-2xl hover:text-pink duration-200" onclick="toggleNav()"><i class="fa-solid fa-xmark"></i></button>
+
+                    <ul class="space-y-6">
+
+                        <li><h1 class="text-3xl md:text-4xl capitalize font-bold text-pink">logo</h1></li>
+
+                        <li><a href="index.html" class="capitalize text-xl font-semibold text-black hover:text-pink hover:pl-4  ease-in duration-200"><i class="fa-solid fa-bell-concierge mr-2"></i>our services</a></li>
+
+                        <li><a href="" class="capitalize text-xl font-semibold text-black hover:text-pink hover:pl-4 ease-in duration-200"><i class="fa-solid fa-right-to-bracket mr-2"></i>login</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- MOBILE-SCREEN-END -->
+
+
+            <!--cart-rightsidebar-start-->
+            <div class="right-0 inset-y-0  fixed justify-center items-center overflow-scroll bg-white border-l-2 border-pink w-1/2 lg:w-1/4 overflow-y-scroll hidden pb-8" id="cart-sidebar">
+
+                <button class="text-left  text-2xl duration-200 pl-4 pt-4" onclick="ToggleCart()"><i class="fa-solid fa-xmark"></i>
+                    
+                </button>
+
+                <h2 class="text-3xl text-pink capitalize mt-4 font-bold ml-4">cart itmes</h2>
+
+                <ul class="space-y-4 overflow-auto ml-4" id="cart-items">
+
+                </ul>
+
+                <div class="text-xl text-black capitalize font-semibold mt-8 ml-4">total: <span id="cart-total">0.00</span></div>
+
+                <button class="capitalize text-white px-4 py-2 bg-pink ml-4 mt-2 rounded-xl">check out</button>
+            </div>
+
+            <!--cart-rightsidebar-end-->
+
+
+        <!-- NAVBAR-END -->
+    </header>
+
+    <main class="bg-white">
+        <div class="flex h-auto pr-4 pb-16">
+            <div class="w-[36%] md:w-1/4 bg-white h-screen sticky top-0 border-r-2 border-gray-300">
+
+                <div class="flex flex-col p-6 space-y-4 flex-wrap">
+
+                    <h2 class="text-lg md:text-4xl font-bold text-black capitalize text-left md:text-right">category</h2>
+                    <div class="" id="menu">
+
+                        <a href="#trending" class="block px-4 py-2 hover:bg-pink hover:text-white    md:hover:mr-4 font-bold text-left md:text-right rounded-lg duration-200 ease-in  cursor-pointer capitalize">trending</a>
+
+                        <a href="#recommended" class="block px-4 py-2 hover:bg-pink hover:text-white    md:hover:mr-4 font-bold text-left md:text-right rounded-lg duration-200 ease-in  cursor-pointer capitalize">recommended</a>
+
+                        <a href="#forhome" class="block px-4 py-2 hover:bg-pink hover:text-white    md:hover:mr-4 font-bold text-left md:text-right rounded-lg duration-200 ease-in  cursor-pointer capitalize">for your home</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white h-auto overflow-y-scroll space-y-12 w-3/4 p-6">
+
+                <!-- trending-section-start -->
+                <section id="trending" class="">
+                    <h2 class="text-xl md:text-3xl font-bold capitalize text-black mt-2">trending</h2>
+
+                    <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-3 items-center">
+
+                        <div class="relative w-32 md:w-60 bg-black shadow-lg hover:shadow-xl rounded-lg transition-shadow duration-300 group">
+                            <img src="images/electricity2.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 object-cover group-hover:opacity-40 transition-opacity duration-300 rounded-lg">
+
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+
+                                <h3 class="capitalize text-white text-sm md:text-lg lg:text-2xl font-bold">electricity-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">2000 taka</p>
+
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('electricity-service','2000','images/electricity2.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 rounded-lg bg-black shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/carpet2.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 object-cover rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 flex flex-col items-start justify-end transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">carpet-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">700 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('carpet-service','700','images/carpet2.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative w-32 md:w-60 flex-none bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/fridge1.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 object-cover group-hover:opacity-40 transition-opacity duration-300 rounded-lg">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">refridgerator-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">1700 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('refridgerator-service','1700','images/fridge1.jpg')">buy now</button>
+        
+                            </div>
+                        </div>
+
+                        <div class="relative w-32 md:w-60 flex-none rounded-lg shadow-lg hover:shadow-xl bg-black transition-shadow duration-300 group">
+
+                            <img src="images/plumber3.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg object-cover  group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 flex flex-col items-start justify-end transition-opacity ml-4 mb-4 duration-300">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">plumber-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">900 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('plumber3-service','900','images/plumber3.jpg')">buy now</button>
+                                
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/stove1.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">stove-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">400 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('stove-service','400','images/stove1.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/spa2.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">spa-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">900 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('spa-service','900','images/spa2.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/salon1.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">salon-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">500 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('salon-service','500','images/salon1.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/ac1.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">air condition-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">700 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('air condition-service','700','images/ac1.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/clean1.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">cleaning-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">500 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('cleaning-service','500','images/clean1.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/drive1.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">drive-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">400 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('drive-service','400','images/drive1.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/paint1.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">paint-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">200 taka</p>
+        
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('paint-service','200','images/paint1.jpg')">buy now</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- trending-section-end -->
+
+
+
+                <!-- recommended-section-start -->
+                <section id="recommended" class="mt-8 mb-8">
+                    <h2 class="text-xl md:text-3xl capitalize text-black font-bold mb-4">recommended</h2>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-start justify-center mt-4">
+
+                        <div class="flex items-center justify-start gap-2 cursor-pointer">
+                            <i class="fa-solid fa-bolt text-2xl text-pink"></i>
+                            <p class="font-medium capitalize">electricity-service</p>
+                        </div>
+
+                        <div class="flex items-center  justify-start gap-2 cursor-pointer">
+                            <i class="fa-solid fa-rug text-2xl text-pink"></i>
+                            <p class="font-medium capitalize">carpet-service</p>
+                        </div>
+
+                        <div class="flex items-center  justify-start gap-2 cursor-pointer">
+                            <i class="fa-solid fa-car text-2xl text-pink"></i>
+                            <p class="font-medium capitalize">driver-service</p>
+                        </div>
+
+                        <div class="flex items-center  justify-start gap-2 cursor-pointer">
+                            <i class="fa-solid fa-blender-phone text-2xl text-pink"></i>
+                            <p class="font-medium capitalize">refridgerator-service</p>
+                        </div>
+
+                        <div class="flex items-center  justify-start gap-2 cursor-pointer">
+                            <i class="fa-solid fa-wind text-2xl text-pink"></i>
+                            <p class="font-medium capitalize">ac-service</p>
+                        </div>
+
+                        <div class="flex items-center  justify-start gap-2 cursor-pointer">
+                            <i class="fa-solid fa-utensils text-2xl text-pink"></i>
+                            <p class="font-medium capitalize">stove-service</p>
+                        </div>
+
+                        <div class="flex items-center  justify-start gap-2 cursor-pointer">
+                            <i class="fa-solid fa-palette text-2xl text-pink"></i>
+                            <p class="font-medium capitalize">painting-service</p>
+                        </div>
+
+                        <div class="flex items-center  justify-start gap-2 cursor-pointer">
+                            <i class="fa-solid fa-spa text-2xl text-pink"></i>
+                            <p class="font-medium capitalize">spa-service</p>
+                        </div>
+
+                        <div class="flex items-center  justify-start gap-2 cursor-pointer">
+                            <i class="fa-solid fa-scissors text-2xl text-pink"></i>
+                            <p class="font-medium capitalize">salon-service</p>
+                        </div>
+
+                        <div class="flex items-center  justify-start gap-2 cursor-pointer">
+                            <i class="fa-solid fa-bath text-2xl text-pink"></i>
+                            <p class="font-medium capitalize">plumber-service</p>
+                        </div>
+                    </div>
+                </section>
+                <!-- recommended-section-end -->
+
+                <!-- for-your-home-start -->
+
+                <section id="forhome" class="h-auto mt-8 mb-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-xl lg:text-3xl font-bold capitalize">
+                            <h3>for your home</h3>
+                        </div>
+        
+                        <div class="flex items-center justify-center gap-5 pt-4">
+        
+                            <button id="prev"><i class="fa-solid fa-arrow-left text-xl rounded-lg bg-pink text-white p-2 hover:bg-white hover:text-pink duration-200 ease-in-out"></i></button>
+                
+                            <button id="next"><i class="fa-solid fa-arrow-right text-xl rounded-lg bg-pink text-white p-2 hover:bg-white hover:text-pink duration-200 ease-in-out"></i></button>
+                        </div>               
+                    </div>
+
+                    <div id="slider" class="flex overflow-x-auto scrollbar-none scroll-smooth gap-4">
+                        <div class="relative w-32 md:w-60 bg-black shadow-lg hover:shadow-xl rounded-lg transition-shadow duration-300 group">
+                            <img src="images/electricity2.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 object-cover group-hover:opacity-40 transition-opacity duration-300 rounded-lg">
+
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+
+                                <h3 class="capitalize text-white text-sm md:text-lg lg:text-2xl font-bold">electricity-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">2000 taka</p>
+
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('electricity-service','2000','images/electricity2.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 rounded-lg bg-black shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/carpet2.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 object-cover rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 flex flex-col items-start justify-end transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">carpet-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">700 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('carpet-service','700','images/carpet2.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative w-32 md:w-60 flex-none bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/fridge1.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 object-cover group-hover:opacity-40 transition-opacity duration-300 rounded-lg">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">refridgerator-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">1700 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('refridgerator-service','1700','images/fridge1.jpg')">buy now</button>
+        
+                            </div>
+                        </div>
+
+                        <div class="relative w-32 md:w-60 flex-none rounded-lg shadow-lg hover:shadow-xl bg-black transition-shadow duration-300 group">
+
+                            <img src="images/plumber3.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg object-cover  group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 flex flex-col items-start justify-end transition-opacity ml-4 mb-4 duration-300">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">plumber-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">900 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('plumber3-service','900','images/plumber3.jpg')">buy now</button>
+                                
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/stove1.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">stove-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">400 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('stove-service','400','images/stove1.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/spa2.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">spa-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">900 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('spa-service','900','images/spa2.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/salon1.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">salon-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">500 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('salon-service','500','images/salon1.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/ac1.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">air condition-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">700 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('air condition-service','700','images/ac1.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/clean1.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">cleaning-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">500 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('cleaning-service','500','images/clean1.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/drive1.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">drive-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">400 taka</p>
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('drive-service','400','images/drive1.jpg')">buy now</button>
+                            </div>
+                        </div>
+
+                        <div class="relative flex-none w-32 md:w-60 bg-black rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+
+                            <img src="images/paint1.jpg" alt="" class="w-40 h-40 md:w-96 md:h-60 rounded-lg group-hover:opacity-40 transition-opacity duration-300">
+        
+                            <div class="absolute inset-0 flex flex-col items-start justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-4 mb-4">
+        
+                                <h3 class="capitalize text-white text-sm md:text-lg font-bold">paint-service</h3>
+                                <p class="text-white font-semibold text-xs md:text-base capitalize">200 taka</p>
+        
+                                <button class="mt-2 bg-pink px-2 py-1 capitalize text-sm md:texl-lg rounded-lg text-white" onclick="addToCart('paint-service','200','images/paint1.jpg')">buy now</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mx-auto">
+        <section class="footer bg-teal py-12 bg-gray-500">
+          <div class="max-w-screen-xl mx-auto">
+            <ul class="grid grid-cols-1 items-start gap-5 pb-5 md:grid-cols-2 lg:grid-cols-4">
+              <li>
+                <div class="space-y-3">
+                  <a href="" class="text-4xl text-white font-eduAustralia capitalize font-bold">
+                    ser<span class="text-secondaryColor">vice</span>
+                  </a>
+  
+                  <p class="text-xs text-white">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                  </p>
+                </div>
+              </li>
+  
+              <li>
+                <div class="flex flex-col gap-3">
+                  <h3 class="text-lg uppercase font-bold font-eduAustralia text-white">SUPPORT</h3>
+                  <a href="" class="text-xs text-white">FAQ's</a>
+                  <a href="" class="text-xs text-white">Privacy Policy</a>
+                  <a href="" class="text-xs text-white">Term & Condition</a>
+                  <a href="" class="text-xs text-white">Contact</a>
+                </div>
+              </li>
+  
+              <li class="space-y-8">
+                <div class="space-y-2">
+                  <h3 class="text-lg text-white uppercase font-eduAustralia font-bold">phone</h3>
+  
+                  <p class="flex items-center gap-2 text-xs text-white">
+                    <i class="fa-solid fa-phone text-lg text-white"></i>
+                    +1 000 000 0000
+                  </p>
+                </div>
+  
+                <div class="space-y-2">
+                  <h3 class="text-lg text-white uppercase font-eduAustralia font-bold">email</h3>
+  
+                  <p class="flex items-center gap-2 text-xs text-white">
+                    <i class="fa-solid fa-envelope text-lg text-white"></i>
+                    service.info@email.com
+                  </p>
+                </div>
+              </li>
+  
+              <li class="space-y-8">
+                <div class="space-y-2">
+                  <h3 class="text-lg  uppercase font-eduAustralia text-white font-bold">address</h3>
+  
+                  <p class="flex items-center gap-2 text-xs text-white">
+                    <i class="fa-solid fa-location-dot text-lg text-white"></i>
+                    Address goes here
+                  </p>
+                </div>
+  
+                <div class="space-y-2">
+                  <h3 class="text-lg capitalize text-white font-eduAustralia font-bold">follow us</h3>
+  
+                  <div class="space-x-3">
+                    <i class="fa-brands fa-facebook-f text-lg cursor-pointer text-white hover:-translate-y-1 ease-in duration-200"></i>
+                    <i class="fa-brands fa-twitter text-lg cursor-pointer text-white hover:-translate-y-1 ease-in duration-200"></i>
+                    <i class="fa-brands fa-square-instagram text-lg cursor-pointer text-white hover:-translate-y-1 ease-in duration-200"></i>
+                  </div>
+                </div>
+              </li>
+            </ul>
+  
+            <div class="flex flex-col items-center border-t border-pyellow text-white  py-5 md:flex-row md:justify-between">
+              <p class="capitalize">service Template Kit by Ahbab Sameer</p>
+              <p class="capitalize">Copyright ©️ 2024. All rights reserved.</p>
+            </div>
+          </div>
+        </section>
+      </footer>
+
+
+    <script src="https://kit.fontawesome.com/df9783ea42.js" crossorigin="anonymous"></script>
+    <script src="allservices.js"></script>
+</body>
